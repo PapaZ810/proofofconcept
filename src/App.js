@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [isBackgroundMint, setBackground] = useState(true);
+
+    return (
+      <div className={isBackgroundMint ? 'background-mint' : 'background-gray'}>
+        <h1>Welcome to my app!</h1>
+        <MyButton setBackground={setBackground} isBackgroundMint={isBackgroundMint} />
+      </div>
+    );
 }
 
-export default App;
+
+function MyButton({setBackground, isBackgroundMint}) {
+
+    function handleClick() {
+        setBackground(!isBackgroundMint);
+    }
+
+    return (
+        <button  onClick={handleClick}>
+            I change colors!
+        </button>
+    );
+}
