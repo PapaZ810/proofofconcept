@@ -1,28 +1,26 @@
-import React from 'react';
-import { useState } from 'react';
+import React/*, {useState}*/ from 'react';
 import './App.css';
 
-export default function App() {
-    const [isBackgroundMint, setBackground] = useState(true);
 
+export default function App() {
     return (
-      <div className={isBackgroundMint ? 'background-mint' : 'background-gray'}>
+      <div>
         <h1>Welcome to my app!</h1>
-        <MyButton setBackground={setBackground} isBackgroundMint={isBackgroundMint} />
+        <MyButton />
       </div>
     );
 }
 
 
-function MyButton({setBackground, isBackgroundMint}) {
+function MyButton() {
 
     function handleClick() {
-        setBackground(!isBackgroundMint);
+        alert('holy shit!');
     }
 
     return (
         <button  onClick={handleClick}>
-            I change colors!
+            I don't change colors!
         </button>
     );
 }
